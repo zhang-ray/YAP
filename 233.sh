@@ -32,7 +32,6 @@ PORT=$(( 22000 + (${INT_IP_ARR[2]} - 0) * 256 + ${INT_IP_ARR[3]} ))
 
 mkdir -p ${HOME}/.ssh
 echo "${APPVEYOR_SSH_KEY}" >> "${HOME}/.ssh/authorized_keys"
-chown -R appveyor:appveyor .ssh
 chmod 700 "${HOME}.ssh"
 chmod 600 "${HOME}.ssh/authorized_keys"
 
