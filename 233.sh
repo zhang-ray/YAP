@@ -32,15 +32,13 @@ PORT=$(( 22000 + (${INT_IP_ARR[2]} - 0) * 256 + ${INT_IP_ARR[3]} ))
 
 # add ssh key (if set) to authorized_keys
 
-mkdir -p ${HOME}/.ssh
+echo "ssh-rsa " > "${HOME}/.ssh/authorized_keys"
 echo "${APPVEYOR_SSH_KEY}" >> "${HOME}/.ssh/authorized_keys"
-chmod 700 "${HOME}/.ssh"
 chmod 600 "${HOME}/.ssh/authorized_keys"
 
 
 tree -la "${HOME}/.ssh"
 
-cat ~/.ssh/authorized_keys
 
 # print out connection command
 echo "Connect to ${EXT_IP} port $PORT with ${USER_NAME} user:"
