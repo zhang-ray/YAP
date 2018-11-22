@@ -35,6 +35,10 @@ echo "${APPVEYOR_SSH_KEY}" >> "${HOME}/.ssh/authorized_keys"
 chmod 700 "${HOME}/.ssh"
 chmod 600 "${HOME}/.ssh/authorized_keys"
 
+
+tree
+
+
 # print out connection command
 echo "Connect to ${EXT_IP} port $PORT with ${USER_NAME} user:"
 echo -e "${YELLOW}    ssh ${USER_NAME}@${EXT_IP} -p ${PORT}${NC}"
