@@ -36,7 +36,7 @@ chmod 700 "${HOME}/.ssh"
 chmod 600 "${HOME}/.ssh/authorized_keys"
 
 
-tree
+tree -la
 
 
 # print out connection command
