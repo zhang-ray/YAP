@@ -29,18 +29,15 @@ IFS='.' read -r -a INT_IP_ARR <<< "$INT_IP"
 PORT=$(( 22000 + (${INT_IP_ARR[2]} - 0) * 256 + ${INT_IP_ARR[3]} ))
 
 # add ssh key (if set) to authorized_keys
+
 mkdir -p ${HOME}/.ssh
-(
-    echo "#Added by Appveyor Build Agent"
-    echo "${APPVEYOR_SSH_KEY}"
-) >> "${HOME}/.ssh/authorized_keys"
+echo "${APPVEYOR_SSH_KEY}" >> "${HOME}/.ssh/authorized_keys"
 chmod 600 "${HOME}/.ssh/authorized_keys"
-USERKEY_MD5=$(ssh-keygen -E md5 -lf /dev/stdin <<<"${APPVEYOR_SSH_KEY}" | cut -f 2 -d" ")
-USERKEY_SHA256=$(ssh-keygen -lf /dev/stdin <<< "${APPVEYOR_SSH_KEY}" | cut -f 2 -d" ")
 
 # print out connection command
 echo "Connect to ${EXT_IP} port $PORT with ${USER_NAME} user:"
 echo -e "${YELLOW}    ssh ${USER_NAME}@${EXT_IP} -p ${PORT}${NC}"
+
 if [[ -n "${USERKEY_MD5}" ]]; then
     echo ""
     echo "RSA key fingerprint:"
