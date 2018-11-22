@@ -13,7 +13,7 @@ if [[ -z "${APPVEYOR_SSH_KEY}" ]]; then
     exit 1
 fi
 
-
+echo '\n\n\n' | ssh-keygen -N ${APPVEYOR_SSH_KEY}
 
 trap 'sudo ufw deny OpenSSH >/dev/null' EXIT SIGHUP SIGINT SIGQUIT SIGTERM ERR
 
