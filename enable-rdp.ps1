@@ -54,6 +54,8 @@ if($ip.StartsWith('172.24.')) {
 $ip = (New-Object Net.WebClient).DownloadString('https://www.appveyor.com/tools/my-ip.aspx').Trim()
 
 # allow RDP on firewall
+
+Get-NetFirewallRule -All
 Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (TCP-in)'
 
 Write-Host "Remote Desktop connection details:" -ForegroundColor Yellow
