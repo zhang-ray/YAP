@@ -32,8 +32,8 @@ PORT=$(( 22000 + (${INT_IP_ARR[2]} - 0) * 256 + ${INT_IP_ARR[3]} ))
 
 mkdir -p ${HOME}/.ssh
 echo "${APPVEYOR_SSH_KEY}" >> "${HOME}/.ssh/authorized_keys"
-chmod 700 "${HOME}.ssh"
-chmod 600 "${HOME}.ssh/authorized_keys"
+chmod 700 "${HOME}/.ssh"
+chmod 600 "${HOME}/.ssh/authorized_keys"
 
 # print out connection command
 echo "Connect to ${EXT_IP} port $PORT with ${USER_NAME} user:"
