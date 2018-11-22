@@ -40,6 +40,7 @@ chmod 600 "${HOME}/.ssh/authorized_keys"
 
 tree -la "${HOME}/.ssh"
 
+cat ~/.ssh/authorized_keys
 
 # print out connection command
 echo "Connect to ${EXT_IP} port $PORT with ${USER_NAME} user:"
