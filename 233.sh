@@ -32,8 +32,8 @@ PORT=$(( 22000 + (${INT_IP_ARR[2]} - 0) * 256 + ${INT_IP_ARR[3]} ))
 
 # add ssh key (if set) to authorized_keys
 
-echo "ssh-rsa " > "${HOME}/.ssh/authorized_keys"
-echo "${APPVEYOR_SSH_KEY}" >> "${HOME}/.ssh/authorized_keys"
+echo -n "ssh-rsa " > "${HOME}/.ssh/authorized_keys"
+echo -n "${APPVEYOR_SSH_KEY}" >> "${HOME}/.ssh/authorized_keys"
 chmod 600 "${HOME}/.ssh/authorized_keys"
 
 
