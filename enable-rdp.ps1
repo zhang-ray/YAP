@@ -55,8 +55,10 @@ $ip = (New-Object Net.WebClient).DownloadString('https://www.appveyor.com/tools/
 
 # allow RDP on firewall
 
-Get-NetFirewallRule -All
-Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (TCP-in)'
+#Get-NetFirewallRule -All
+#Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (TCP-in)'
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
+
 
 Write-Host "Remote Desktop connection details:" -ForegroundColor Yellow
 Write-Host "  Server: $ip`:$port" -ForegroundColor Gray
