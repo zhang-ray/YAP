@@ -1,14 +1,5 @@
-image: ubuntu
-
-
-
-build_script:
-- echo "233"
-
+image: Visual Studio 2015
 
 on_finish:
-  - sh: export APPVEYOR_SSH_BLOCK=true
-  - sh: chmod +x ./233.sh && ./233.sh
-
-
-  
+  - ps: $blockRdp = $true;
+  - ps: .\enable-rdp.ps1
